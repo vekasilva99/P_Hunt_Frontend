@@ -64,12 +64,20 @@ export default function MyVotes() {
   };
   const getDate = (date) => {
     let arreglo = date.split(" ");
-    let final;
+    let final = date;
 
-    if (arreglo[0] === "Last") {
-      final = arreglo[0] + " " + arreglo[1];
-    } else {
-      final = arreglo[0];
+    // if (arreglo[0] === "Last") {
+    //   final = arreglo[0] + " " + arreglo[1];
+    // } else {
+    //   final = arreglo[0];
+    // }
+    console.log(date);
+    console.log(moment().subtract(1, "days").format("MM-DD-YYYY").toString());
+    if (moment().format("MM-DD-YYYY").toString() === date) {
+      final = "Today";
+    }
+    if (moment().subtract(1, "days").format("MM-DD-YYYY").toString() === date) {
+      final = "Yesterday";
     }
 
     return final;
@@ -84,7 +92,7 @@ export default function MyVotes() {
           <>
             {getDates(products).map((date) => (
               <div className="list">
-                <h1>{getDate(moment(date).calendar().toString())}</h1>
+                <h1>{getDate(date.toString())}</h1>
                 <ProductCard
                   productos={getProducts(date, products)}
                   popUp={handlePopUp}

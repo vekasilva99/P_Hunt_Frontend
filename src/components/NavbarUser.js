@@ -9,12 +9,12 @@ export default function Navbar(props) {
   const [log, setLog] = React.useState(false);
   const dispatch = useDispatch();
   const logOut = (e) => {
+    setLog(true);
     e.preventDefault();
     localStorage.clear();
     dispatch({
       type: "LOGOUT",
     });
-    setLog(true);
   };
   let style;
   if (props.popUp) {

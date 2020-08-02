@@ -377,7 +377,7 @@ const StyledCard = styled.div`
         flex-direction: column;
         text-align: center;
         h2 {
-          font-size: 30px;
+          font-size: 20px;
           margin: 0;
           color: black;
         }
@@ -390,6 +390,7 @@ const StyledCard = styled.div`
           font-weight: 200;
           margin: 0;
           color: black;
+          font-size: 10px;
         }
       }
       .vote-b {
